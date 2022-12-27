@@ -3,7 +3,7 @@ import style from "./InputBox.module.css"
 import NewUserBox from "./NewUserBox"
 import OldUserBox from "./OldUserBox"
 
-export default function InputBox() {
+export default function InputBox({addUser,getUser}) {
   const [isUserExist,setIsUserExist]= useState(true)
 
   return (
@@ -12,7 +12,7 @@ export default function InputBox() {
         <button onClick={()=>{setIsUserExist(true)}}>old user</button>
         <button onClick={()=>{setIsUserExist(false)}}>new user</button>
       </div>
-      { isUserExist ? <OldUserBox/> : <NewUserBox/> }
+      { isUserExist ? <OldUserBox getUser={getUser}/> : <NewUserBox addUser={addUser} /> }
     </div>
   )
 }
