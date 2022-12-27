@@ -1,8 +1,10 @@
+import InputBox from "./component/InputBox/InputBox"
+
 function App() {
 
   return (
     <div className="App">
-        <h1>init commit!</h1>
+      <InputBox/>
     </div>
   )
 }

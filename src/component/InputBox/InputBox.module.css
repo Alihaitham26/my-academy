@@ -1,0 +1,30 @@
+.inputBox{
+  width: 300px;
+  margin: 0 auto;
+  text-align: center;
+  border: 2px solid #000;
+}
+.inputBox label{
+  display: block;
+}
+.inputBox button{
+  display: block;
+}
+
+.options{
+  display: flex;
+}
+.options button{
+  width: 50%;
+  height: 30px;
+  border: none;
+  border-radius: 0;
+}
+
+.inputBox form button{
+  display: block;
+  margin: 10px auto;
+  width: 120px;
+  height: 30px;
+
+}
