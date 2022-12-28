@@ -1,4 +1,4 @@
-import { doc, getDoc, increment, setDoc, updateDoc } from "firebase/firestore";
+import { doc, getDoc, setDoc, updateDoc } from "firebase/firestore";
 import { db } from "./init";
 
 const formatId = (id) => {
@@ -16,9 +16,11 @@ async function addStudent(name){
   const maxIdDocRef = doc(db,"metaData","6z53S1TxbzdN8ti53pdS")
   const maxId = (await getDoc(maxIdDocRef)).data().maxId
   const id = formatId(maxId+1)
-  return setDoc(doc(db,"students",formatId(maxId+1)),{name:name,lessons:[]}).then(()=>{
-    setDoc(maxIdDocRef,{maxId:increment(1)})
-    return doc(db,"students",id)
+  return setDoc(doc(db,"students",id),{name:name,lessons:[]}).then(()=>{
+    setDoc(maxIdDocRef,{maxId:maxId + 1}).then(()=>{
+      console.log("updated")
+    })
+    return {name:name,lessons:[],id:id}
   })
 }
 
