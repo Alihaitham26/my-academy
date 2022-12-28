@@ -9,7 +9,7 @@ const formatId = (id) => {
 
 async function getStudentData(id){
   const snapShot = await getDoc(doc(db,"students",id))
-  return [snapShot.exists,snapShot.data()]
+  return [snapShot.exists(),snapShot.data()]
 }
 
 async function addStudent(name){
@@ -29,4 +29,4 @@ async function addLesson(id,subject,date){
   return isExist
 }
 
-export { getStudentData , addStudent , addLesson}
+export { getStudentData , addStudent , addLesson }
