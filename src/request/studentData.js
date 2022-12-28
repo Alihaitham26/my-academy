@@ -1,4 +1,4 @@
-import { doc, getDoc, setDoc, updateDoc } from "firebase/firestore";
+import { deleteDoc, doc, getDoc, setDoc, updateDoc } from "firebase/firestore";
 import { db } from "./init";
 
 const formatId = (id) => {
@@ -31,4 +31,8 @@ async function addLesson(id,subject,date){
   return isExist
 }
 
-export { getStudentData , addStudent , addLesson }
+async function deleteStudent(id){
+  return deleteDoc(doc(db,"students",id))
+}
+
+export { getStudentData , addStudent , addLesson , deleteStudent}

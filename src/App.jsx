@@ -10,8 +10,9 @@ function App() {
 
   function addUser(name) {
     addStudent(name).then((data)=>{
-      setShowData(true)
       setData(data)
+      setId(data.id)
+      setShowData(true)
     })
   }
 
@@ -27,7 +28,7 @@ function App() {
   return (
     <div className="App">
       <InputBox addUser={addUser} getUser={getUser} />
-      {showData ? <StudentBox data={data} updateData={()=>getUser(id)} /> : null}
+      {showData ? <StudentBox data={data} updateData={()=>getUser(id)} onDelete={()=>{setShowData(false);setData({})}} /> : null}
     </div>
   );
 }
